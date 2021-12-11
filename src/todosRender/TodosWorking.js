@@ -7,6 +7,7 @@ import AddAction from "../redux/actions/AddAction";
 import DeleteAction from "../redux/actions/DeleteAction";
 import EditAction, { UpdateAction } from "../redux/actions/EditAction";
 import { Update_Value } from "../redux/types";
+import { Box } from "@mui/material";
 
 const TodosWorking = () => {
   const [addTodo, setAddTodo] = useState("");
@@ -63,9 +64,11 @@ const TodosWorking = () => {
         value={addTodo}
         onChange={addTodohandler}
       />
+      <Box ml={2} mt={2} component='span'>
       <Button variant="contained" onClick={AddHandler}>
         ADD Items
       </Button>
+      </Box>
 
       {userTodos.map((elem,index) => {
         return (
@@ -78,9 +81,7 @@ const TodosWorking = () => {
             <Button variant="contained" onClick={() => DeleteHandler(index)}>
               Delete Items
             </Button>
-            <Button variant="contained" onClick={() => dispatch(UpdateAction("Shafqat"))}>
-              Dispatch Item
-            </Button>
+           
           </div>
           
         );
